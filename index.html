@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Loook</title>
+</head>
+<body>
+	<main>
+		<div class="container">
+			<div class="bg-video">
+				<video  class="bg-video__content" autoplay muted loop>
+					<source src="img/video.mp4" type="video/mp4">
+					<source src="img/video.webm" type="video/webm">
+						Poblem with your browser
+				</video>
+			</div>
+			<div class="main-box">
+				<div class="top-part">
+					<a href="https://www.loook.uz/" class="link-logo">
+						<img src="img/symbol.jpg" alt="logo" class="img-logo">
+					</a>
+					<h1 class="heading-primary">LoooK</h1>
+					<span class="motto">We love your Smile :)</span>
+				</div>
+				<div class="middle-part">
+					<div class="middle-part-left">
+						<ul class="list-clients-left">
+						</ul>
+					</div>
+					<div class="middle-part-right">
+						<span class="orders-right">Orders :</span>
+						<span class="client-name-orders">Muhammadjon</span>
+						<ul class="list-orders">
+						</ul>
+					</div>
+				</div>
+				<div class="bottom-part">
+					<div class="bottom-left">
+						<h2 class="heading-secondary">Add New Client</h2>
+						<form class="form-users">
+							<input id="userAdd" type="text" placeholder="Enter username" required>
+							<input id="numAdd" type="number" placeholder="Write phone number" required>
+							<div class="buttons-left">
+								<button type="submit" id="buttonAddUser">+ Add</button>
+								<button type="reset" id="buttonReset">Clear</button>
+							</div>
+						</form>
+					</div>
+					<div class="bottom-right">
+						<h2 class="heading-secondary">Add Order</h2>
+						<form class="form-orders">
+							<select id="selector">
+							</select>
+							<input id="orderCount" type="number" placeholder="count" required>
+							<div class="buttons-right">
+								<button type="submit" id="buttonAddOrder">+ Add</button>
+								<button type="reset" id="buttonReset">Clear</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<script src="./js/main.js"> </script>
+</body>
+</html>

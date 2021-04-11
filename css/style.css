@@ -1,0 +1,287 @@
+.main-box {
+  width: 780px;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0 0 10px black;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: red;
+}
+.main-box .top-part {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.main-box .top-part .link-logo .img-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: absolute;
+  left: -50px;
+  top: -50px;
+  transform: rotate(-30deg);
+}
+.main-box .top-part .heading-primary {
+  font-family: "Akaya Telivigala";
+  color: yellow;
+  font-size: 60px;
+  padding: 0;
+  margin: 0;
+  margin-left: 100px;
+}
+.main-box .top-part .motto {
+  font-family: "Akaya Telivigala";
+  color: white;
+  font-size: 35px;
+  margin-left: 50px;
+  font-weight: bold;
+}
+.main-box .middle-part {
+  display: flex;
+  margin-top: 25px;
+  align-items: flex-start;
+}
+.main-box .middle-part-left {
+  box-shadow: 0 0 20px white;
+  border-radius: 5px;
+  padding: 10px;
+}
+.main-box .middle-part-left .list-clients-left {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 350px;
+  overflow-y: scroll;
+  padding: 10px;
+}
+.main-box .middle-part-left .list-clients-left .item-clients-left {
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.main-box .middle-part-left .list-clients-left .item-clients-left .client-name {
+  font-family: "Dancing Script";
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.main-box .middle-part-left .list-clients-left .item-clients-left .client-number {
+  color: yellow;
+  font-size: 18px;
+}
+.main-box .middle-part-right {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 20px;
+}
+.main-box .middle-part-right .orders-right {
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+  color: #A8F239;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px grey;
+}
+.main-box .middle-part-right .client-name-orders {
+  font-weight: bold;
+  font-family: "Dancing Script";
+  color: white;
+  font-size: 40px;
+  padding: 10px;
+  display: block;
+  text-align: center;
+}
+.main-box .middle-part-right .list-orders {
+  border-radius: 5px;
+  box-shadow: 0 0 10px white;
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 15px;
+  overflow-x: scroll;
+  width: 500px;
+}
+.main-box .middle-part-right .list-orders .item-orders {
+  padding: 5px;
+  margin-right: 10px;
+  font-family: "Pacifico";
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+}
+.main-box .middle-part-right .list-orders .item-orders .img-order {
+  border-radius: 5px;
+  width: 100px;
+  height: 80px;
+}
+.main-box .middle-part-right .list-orders .item-orders .title-order {
+  text-shadow: 1px 1px 5px grey;
+  color: orangered;
+}
+.main-box .middle-part-right .list-orders .item-orders .count-order {
+  color: blue;
+}
+.main-box .bottom-part {
+  margin-top: 20px;
+  display: flex;
+}
+.main-box .bottom-part .bottom-left {
+  padding: 10px;
+  box-shadow: 0 2px white;
+  padding-right: 20px;
+  border-right: 2px solid white;
+}
+.main-box .bottom-part .bottom-left .heading-secondary {
+  font-family: "Indie Flower";
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+.main-box .bottom-part .bottom-left .form-users {
+  display: flex;
+  flex-direction: column;
+}
+.main-box .bottom-part .bottom-left .form-users input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+}
+.main-box .bottom-part .bottom-left .form-users .buttons-left {
+  padding: 0 30px;
+}
+.main-box .bottom-part .bottom-left .form-users .buttons-left #buttonAddUser {
+  margin-right: 15px;
+  padding: 7px 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 0 0 3px white;
+  background-color: #2BF255;
+  color: white;
+  text-shadow: 0 0 5px black;
+  font-family: "Akaya Telivigala";
+  font-size: 20px;
+}
+.main-box .bottom-part .bottom-left .form-users .buttons-left #buttonReset {
+  background-color: #F25547;
+  color: white;
+  font-weight: bold;
+  padding: 7px 15px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px white;
+}
+.main-box .bottom-part .bottom-right {
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  padding: 10px;
+  margin-left: 50px;
+}
+.main-box .bottom-part .bottom-right .heading-secondary {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: "Indie Flower";
+}
+.main-box .bottom-part .bottom-right .form-orders {
+  display: flex;
+  align-items: center;
+}
+.main-box .bottom-part .bottom-right .form-orders #selector {
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.main-box .bottom-part .bottom-right .form-orders input {
+  width: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  margin-right: 10px;
+}
+.main-box .bottom-part .bottom-right .form-orders .buttons-right {
+  display: flex;
+  flex-direction: column;
+}
+.main-box .bottom-part .bottom-right .form-orders .buttons-right #buttonAddOrder {
+  margin-bottom: 20px;
+  padding: 7px 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 0 0 3px white;
+  background-color: #2BF255;
+  color: white;
+  text-shadow: 0 0 5px black;
+  font-family: "Akaya Telivigala";
+  font-size: 20px;
+}
+.main-box .bottom-part .bottom-right .form-orders .buttons-right #buttonReset {
+  background-color: #F25547;
+  color: white;
+  font-weight: bold;
+  padding: 7px 15px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px white;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.4;
+  overflow: hidden;
+}
+.bg-video__content {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+.container {
+  position: relative;
+  width: 1340px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*# sourceMappingURL=style.css.map */
