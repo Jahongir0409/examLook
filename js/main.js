@@ -1,126 +1,116 @@
-// let clients = [
-// 	{ user_id: 1, ism:'Muhammadjon', nomer:'998912231313'},
-// 	{ user_id: 2, ism:'Jasur', nomer:'998917891313'},
-// 	{ user_id: 3, ism:'Muhammad Ali', nomer:'998912215313'}
-// ]
 
-// let menu = [
-// 	{ food_id:1, title:'spinner', img:'img/spinner.png', count:1},
-// 	{ food_id:2, title:'hamburger', img:'img/hamburger.jpg', count:1},
-// 	{ food_id:3, title:'crispy', img:'img/crispy.jpg', count:1},
-// 	{ food_id:4, title:'fries', img:'img/fries.png', count:1},
-// 	{ food_id:5, title:'coca-cola', img:'img/cola.jpg', count:1},
-// ]
-// window.localStorage.setItem('dataMenu', JSON.stringify(menu))
-let menu = window.localStorage.getItem('dataMenu')
-if(!menu) menu = []
-else menu = JSON.parse(menu)
-
-// let orders = [
-// 	{order_id:1 , user_id: 1, food_id:1, count:1}
-// ]
-
-// window.localStorage.setItem('data', JSON.stringify(clients))
-let clients = window.localStorage.getItem('data')
-if(!clients) clients = []
-else clients = JSON.parse(clients)
-
-let selector = document.querySelector('#selector')
-let listClients = document.querySelector('.list-clients-left')
+let usersList = document.querySelector('.list-clients-left')
 let formUsers = document.querySelector('.form-users')
-let userAdd = document.querySelector('#userAdd')
-let numAdd = document.querySelector('#numAdd')
-let buttonAddUser =  document.querySelector('#buttonAddUser')
+let usernameInput = document.querySelector('#userAdd')
+let telephoneInput = document.querySelector('#numAdd')
+let selector = document.querySelector('#selector')
+let userHeader = document.querySelector('.client-name-orders')
+let userIdHeader = document.querySelector('#clientId')
+let ordersList = document.querySelector('.list-orders')
+let foodsForm = document.querySelector('.form-orders')
+let foodsCount = document.querySelector('#orderCount') 
 
-let listOrders = document.querySelector('.list-orders')
-let formOrders = document.querySelector('.form-orders')
-let orderCount = document.querySelector('#orderCount') 
 
-function menuRenderer (array) {
-	selector.innerHTML = null
-	for( let element  of array) {
-		let option = document.createElement('option')
-		option.innerText = element.title 
-		option.value = element.food_id
+function userRenderer (array) {
+	usersList.innerHTML = null
+	array.map( user => {
+		let userItem = document.createElement('li')
+		let username =  document.createElement('span')
+		let mobile =  document.createElement('a')
+
+		userItem.classList.add('item-clients-left')
+		username.classList.add('client-name')
+		mobile.classList.add('client-number')
+		mobile.setAttribute('href',`tel:+${user.telephone}`)
+
+		username.textContent = user.first_name
+		mobile.textContent = '+' + user.telephone
+
+		userItem.appendChild(username)
+		userItem.appendChild(mobile)
+		usersList.appendChild(userItem)
+
+		userItem.onclick = (event) => {
+			userHeader.textContent = user.first_name
+			userIdHeader.textContent = user.user_id
+
+			
+			ordersRenderer(user.user_id)		
+		}
+	})
+}
+function foodsRenderer (array) {
+	array.map( (food) => {
+		let option =  document.createElement('option')
+		option.value = food.food_id
+		option.textContent = food.food_name
 		selector.appendChild(option)
+	})
+}
+
+function ordersRenderer (userId) {
+	 ordersList.innerHTML = null
+	for (let food of foods) {
+		for (let order of orders) {
+			if(food.food_id == order.food_id && order.user_id == userId){
+				let li = document.createElement('li')
+				let img = document.createElement('img')
+				let foodName = document.createElement('span')
+				let foodCount = document.createElement('span')
+
+				li.classList.add('item-orders')
+				img.classList.add('img-order')
+				foodName.classList.add('title-order')
+				foodCount.classList.add('count-order')
+
+				img.setAttribute('src', food.food_img)
+				foodName.textContent = food.food_name
+				foodCount.textContent = order.count
+
+				li.appendChild(img)
+				li.appendChild(foodName)
+				li.appendChild(foodCount)
+				ordersList.appendChild(li)
+			}
+		}
 	}
 }
-menuRenderer(menu)
-
-function clientRenderer(array) {
-	listClients.innerHTML = null
-	for (let element of array) {
-		let userLi = document.createElement('li')
-		let clientName =  document.createElement('span')
-		let clientNumber =  document.createElement('span')
-
-		userLi.classList.add('item-clients-left')
-		clientName.classList.add('client-name')
-		clientNumber.classList.add('client-number')
-		clientName.textContent = element.ism
-		clientNumber.textContent = element.nomer
-
-		userLi.appendChild(clientName)
-		userLi.appendChild(clientNumber)
-		listClients.appendChild(userLi)
-	}
-}
-clientRenderer(clients)
-
-function orderRenderer(array) {
-	listOrders.innerHTML = null
-	for( let element of array) {
-		let orderLi = document.createElement('li')
-		let orderImg = document.createElement('img')
-		let orderTitle = document.createElement('span')
-		let orderCounter = document.createElement('span')
-
-		orderLi.classList.add('item-orders')
-		orderImg.classList.add('img-order')
-		orderTitle.classList.add('title-order')
-		orderCounter.classList.add('count-order')
 
 
-		orderImg.setAttribute('src', element.img)
-
-		orderCounter.textContent = element.count
-		orderTitle.textContent = element.title
-
-		orderLi.appendChild(orderImg)
-		orderLi.appendChild(orderTitle)
-		orderLi.appendChild(orderCounter)
-		listOrders.appendChild(orderLi)
-
-	}
-}
-orderRenderer(menu)
-
-formUsers.onsubmit = function (event) {
+formUsers.onsubmit = (event) => {
 	event.preventDefault()
-	let obj = {
-		user_id : clients.length + 1,
-		ism: userAdd.value,
-		nomer : numAdd.value + ''
+	let newUser = {
+		user_id: users[users.length - 1].user_id + 1,
+		first_name: usernameInput.value,
+		telephone : telephoneInput.value
 	}
-	clients.push(obj)
-	window.localStorage.setItem('data', JSON.stringify(clients))
-	userAdd.value = null 
-	numAdd.value = null
+	users.push(newUser)
+	window.localStorage.setItem('usersData', JSON.stringify(users))
+	userRenderer(users)
 }
-clientRenderer(clients)
 
-formOrders.onsubmit = function (event) {
+foodsForm.onsubmit = (event) => {
 	event.preventDefault()
-	let found = menu.find(e => e.food_id == selector.value)
-	let founder = menu.find(e => e.food_id == selector.value)
-	let obj = {
-		food_id : menu.length + 1,
-		title: found.title,
-		img: founder.img,
-		count : orderCount.value  
+	if(userIdHeader.textContent) {
+		let found  = orders.find( order => order.food_id == selector.value && order.user_id == userIdHeader.textContent)
+		if (found) {
+			found.count = parseInt(foodsCount.value) + parseInt(found.count)
+		}
+		else{
+			let newOrder = {
+				user_id : userIdHeader.textContent,
+				food_id: selector.value,
+				count: foodsCount.value
+			}
+			orders.push(newOrder)
+		}
+		
+		selector.value = 1
+		foodsCount.value = null
+		window.localStorage.setItem('ordersData', JSON.stringify(orders))
+		ordersRenderer(userIdHeader.textContent)
 	}
-	menu.push(obj)
-	window.localStorage.setItem('dataMenu', JSON.stringify(menu))
-	orderCount.value = null 
 }
-orderRenderer(menu)
+
+userRenderer(users)
+foodsRenderer(foods)

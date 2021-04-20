@@ -97,6 +97,14 @@
   display: block;
   text-align: center;
 }
+.main-box .middle-part-right #clientId {
+  font-family: "Akaya Telivigala";
+  font-size: 35px;
+  color: #20B2AA;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  padding-top: 0;
+}
 .main-box .middle-part-right .list-orders {
   border-radius: 5px;
   box-shadow: 0 0 10px white;
